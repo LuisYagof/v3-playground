@@ -75,7 +75,7 @@ async function onScrollBottom() {
 
 <style scoped>
 .wrapper {
-  min-width: 35rem;
+  min-width: 25rem;
   min-height: 30rem;
   position: relative;
 
@@ -84,5 +84,16 @@ async function onScrollBottom() {
     max-height: 30rem;
     overflow-y: scroll;
   }
+}
+
+@media (min-width: 1024px) {
+  .wrapper {
+    min-width: 35rem;
+
+    .list-container {
+      max-width: 35rem;
+    }
+  }
+
 }
 </style>
