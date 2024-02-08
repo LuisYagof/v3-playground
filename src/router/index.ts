@@ -21,6 +21,11 @@ const router = createRouter({
       path: '/click-outside',
       name: 'click-outside',
       component: () => import('@/views/ClickOutsidePage.vue')
+    },
+    {
+      path: '/inactivity',
+      name: 'inactivity',
+      component: () => import('@/views/InactivityPage.vue')
     }
   ]
 })

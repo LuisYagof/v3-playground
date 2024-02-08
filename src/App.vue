@@ -1,6 +1,27 @@
 <script setup lang="ts">
+// IMPORTS
 import { RouterLink, RouterView } from 'vue-router'
 import TheSidebar from '@/components/TheSidebar.vue'
+
+// DATA
+const appRoutes = [
+  {
+    name: 'home',
+    text: 'Home'
+  },
+  {
+    name: 'infinite-scroll',
+    text: 'Infinite Scroll'
+  },
+  {
+    name: 'click-outside',
+    text: 'Click Outside'
+  },
+  {
+    name: 'inactivity',
+    text: 'Inactivity'
+  }
+]
 </script>
 
 <template>
@@ -15,9 +36,9 @@ import TheSidebar from '@/components/TheSidebar.vue'
       <TheSidebar title="v3-playground" />
 
       <nav>
-        <RouterLink :to="{ name: 'home' }">Home</RouterLink>
-        <RouterLink :to="{ name: 'infinite-scroll' }">Infinite Scroll</RouterLink>
-        <RouterLink :to="{ name: 'click-outside' }">Click Outside</RouterLink>
+        <RouterLink v-for="(route, index) in appRoutes"
+          :key="index"
+          :to="{ name: route.name }">{{ route.text }}</RouterLink>
       </nav>
     </div>
   </header>
