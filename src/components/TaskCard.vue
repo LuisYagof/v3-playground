@@ -4,14 +4,14 @@ import type { PropType } from 'vue';
 
 // PROPS
 const props = defineProps({
-    task: { type: Object as PropType<{ text: string, priority: boolean }>, required: true }
+    task: { type: Object as PropType<{ text: string, priority: boolean, id: number }>, required: true }
 
 })
 
 // EMITS
 const emits = defineEmits({
-    removeTask() {
-        return true
+    removeTask(id: number) {
+        return id
     }
 })
 </script>
@@ -23,7 +23,7 @@ const emits = defineEmits({
             {{ task.text }}
         </span>
 
-        <button @click="$emit('removeTask')"
+        <button @click="$emit('removeTask', task.id)"
             class="remove">
             🗑
         </button>

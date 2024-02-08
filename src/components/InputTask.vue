@@ -9,7 +9,7 @@ const { newTask, tasks } = storeToRefs(useTasksStore())
 
 // FUNCTIONS
 function saveTask(priority: boolean) {
-    tasks.value.push({ text: newTask.value, priority })
+    tasks.value.push({ text: newTask.value, priority, id: tasks.value.length })
     newTask.value = ''
 }
 </script>

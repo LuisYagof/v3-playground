@@ -1,5 +1,6 @@
 <script setup lang="ts">
 // IMPORTS
+import { computed } from "vue";
 import { useTasksStore } from "@/stores/tasks.store";
 import TaskCard from '@/components/TaskCard.vue'
 import InputTask from '@/components/InputTask.vue'
@@ -7,9 +8,13 @@ import InputTask from '@/components/InputTask.vue'
 // STORES
 const { tasks } = useTasksStore()
 
+// COMPUTED
+const tasksSortedByNew = computed(() => [...tasks].reverse())
+
 // FUNCTIONS
-function removeTask(index: number) {
-    tasks.splice(index, 1)
+function removeTask(id: number) {
+    const taskToDelete = tasks.findIndex(task => task.id === id)
+    if (taskToDelete > (-1)) tasks.splice(taskToDelete, 1)
 }
 </script>
 
@@ -18,10 +23,10 @@ function removeTask(index: number) {
         <h1>Save Data</h1>
         <InputTask />
         <div class="task-list">
-            <TaskCard v-for="(task, index) in tasks"
+            <TaskCard v-for="(task, index) in tasksSortedByNew"
                 :key="index"
                 :task="task"
-                @remove-task="removeTask(index)" />
+                @remove-task="removeTask" />
         </div>
     </main>
 </template>
