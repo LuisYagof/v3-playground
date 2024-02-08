@@ -58,7 +58,7 @@ async function onScrollBottom() {
   <div class="wrapper">
     <AppLoader v-if="itemsAreLoading" />
 
-    <div class="scroll-container">
+    <div class="list-container">
       <ListItem v-for="(item, index) in dynamicListItems"
         :key="index">
         <template #icon>
@@ -78,11 +78,11 @@ async function onScrollBottom() {
   min-width: 35rem;
   min-height: 30rem;
   position: relative;
-}
 
-.scroll-container {
-  max-width: 35rem;
-  max-height: 30rem;
-  overflow-y: scroll;
+  .list-container {
+    max-width: 35rem;
+    max-height: 30rem;
+    overflow-y: scroll;
+  }
 }
 </style>

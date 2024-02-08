@@ -40,22 +40,22 @@ const emits = defineEmits({
     gap: 1rem;
     justify-content: space-between;
     align-items: center;
-}
 
-.task.priority {
-    border: 1px var(--vt-c-vue-green) solid;
-}
+    &.priority {
+        border: 1px var(--vt-c-vue-green) solid;
+    }
 
-.remove {
-    width: 3rem;
-    cursor: pointer;
-    font-size: 2rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 8px;
-    background-color: red;
-    color: white;
-    border: none;
+    .remove {
+        width: 3rem;
+        cursor: pointer;
+        font-size: 2rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 8px;
+        background-color: red;
+        color: white;
+        border: none;
+    }
 }
 </style>

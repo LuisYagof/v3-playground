@@ -4,7 +4,8 @@
     <h4>This is a collection of utilities for a SPA and a personal playground for new technologies from the
       Vue
       ecosystem.</h4>
-    <h4>The utilities displayed include an infinite scroll, an inactivity timeout, a click-outside-an-HTML-node
+    <h4 :style="{ color: 'var(--vt-c-vue-green)' }">The utilities displayed include an infinite scroll, an inactivity
+      timeout, a click-outside-an-HTML-node
       directive, etc.</h4>
     <h4>The technologies I'm testing include Playwright, Vitest, Pinia and more</h4>
   </div>

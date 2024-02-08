@@ -1,12 +1,13 @@
 <script setup lang="ts">
-defineProps<{
+// PROPS
+const props = defineProps<{
   title: string
 }>()
 </script>
 
 <template>
   <div class="greetings">
-    <h1 class="green">{{ title }}</h1>
+    <h1 class="green">{{ props.title }}</h1>
     <h3>
       Welcome to my sandbox
     </h3>
@@ -14,27 +15,31 @@ defineProps<{
 </template>
 
 <style scoped>
-h1 {
-  font-weight: 500;
-  font-size: 2.6rem;
-  position: relative;
-  top: -10px;
-}
+.greetings {
+  h1 {
+    font-weight: 500;
+    font-size: 2.6rem;
+    position: relative;
+    top: -10px;
+  }
 
-h3 {
-  font-size: 1.2rem;
-}
+  h3 {
+    font-size: 1.2rem;
+  }
 
-.greetings h1,
-.greetings h3 {
-  text-align: center;
+  h1,
+  h3 {
+    text-align: center;
+  }
 }
 
 @media (min-width: 1024px) {
+  .greetings {
 
-  .greetings h1,
-  .greetings h3 {
-    text-align: left;
+    h1,
+    h3 {
+      text-align: left;
+    }
   }
 }
 </style>

@@ -43,14 +43,15 @@ main {
     display: flex;
     align-items: center;
     justify-content: center;
-}
 
-.button {
-    cursor: pointer;
-    background-color: var(--vt-c-vue-green);
-    color: white;
-    font-family: 'Segoe UI';
-    padding: v-bind(boxPadding);
-    transition: padding 1s;
+    .button {
+        cursor: pointer;
+        background-color: var(--vt-c-vue-green);
+        color: white;
+        font-family: 'Segoe UI';
+        border: none;
+        padding: v-bind(boxPadding);
+        transition: padding 1s;
+    }
 }
 </style>

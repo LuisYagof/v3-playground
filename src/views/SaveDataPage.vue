@@ -32,11 +32,11 @@ main {
     flex-direction: column;
     align-items: center;
     gap: 1rem;
-}
 
-.task-list {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
+    .task-list {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
 }
 </style>
