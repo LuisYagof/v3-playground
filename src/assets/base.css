@@ -84,3 +84,25 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
+/* __SCROLLBARS__ */
+/* width */
+::-webkit-scrollbar {
+  width: 0.4rem;
+  height: 0.4rem;
+}
+/* Track */
+::-webkit-scrollbar-track {
+  background: transparent;
+  border-radius: 0.3125rem;
+}
+/* Handle */
+::-webkit-scrollbar-thumb {
+  opacity: 0.55;
+  border-radius: 0.3125rem;
+  background: lightgray;
+}
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: gray;
+}
