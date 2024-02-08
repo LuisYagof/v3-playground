@@ -1,12 +1,12 @@
 <script setup lang="ts">
 // IMPORTS
-import AppCountdown from '@/components/core/AppCountdown.vue';
+import InactivityCountdown from '@/components/core/InactivityCountdown.vue';
 </script>
 
 <template>
     <main>
         <h1>Screen Inactivity</h1>
-        <AppCountdown />
+        <InactivityCountdown />
     </main>
 </template>
 

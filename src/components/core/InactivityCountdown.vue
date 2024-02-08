@@ -46,9 +46,12 @@ function resetCountdown() {
 </script>
 
 <template>
-    <span>Countdown:
-        <span :style="{ color: 'var(--vt-c-vue-green)', fontSize: '1.5rem' }">
-            {{ secondsRemaining }}
+    <div :style="{ display: 'flex', flexDirection: 'column' }">
+        <span>This countdown will restart every time a mouse event happens</span>
+        <span>Countdown:
+            <span :style="{ color: 'var(--vt-c-vue-green)', fontSize: '1.5rem' }">
+                {{ secondsRemaining }}
+            </span>
         </span>
-    </span>
+    </div>
 </template>
