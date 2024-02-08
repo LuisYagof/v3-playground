@@ -17,6 +17,7 @@ import TheSidebar from '@/components/TheSidebar.vue'
       <nav>
         <RouterLink :to="{ name: 'home' }">Home</RouterLink>
         <RouterLink :to="{ name: 'infinite-scroll' }">Infinite Scroll</RouterLink>
+        <RouterLink :to="{ name: 'click-outside' }">Click Outside</RouterLink>
       </nav>
     </div>
   </header>
