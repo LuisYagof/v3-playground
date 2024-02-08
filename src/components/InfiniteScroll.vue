@@ -1,6 +1,7 @@
 <script setup lang="ts">
 // IMPORTS
 import { ref, type Ref, type Component, markRaw } from 'vue'
+import { sleep } from '@/utils/common'
 import ListItem from '@/components/ListItem.vue'
 import DocumentationIcon from '@/components/icons/IconDocumentation.vue'
 import ToolingIcon from '@/components/icons/IconTooling.vue'
@@ -8,6 +9,7 @@ import EcosystemIcon from '@/components/icons/IconEcosystem.vue'
 import CommunityIcon from '@/components/icons/IconCommunity.vue'
 import SupportIcon from '@/components/icons/IconSupport.vue'
 import ScrollBottom from '@/components/core/ScrollBottom.vue'
+import AppLoader from '@/components/core/AppLoader.vue'
 
 // DATA
 const listItems: { icon: Component, heading: string, text: string }[] = [
@@ -41,33 +43,46 @@ const listItems: { icon: Component, heading: string, text: string }[] = [
 ]
 
 const dynamicListItems: Ref<typeof listItems> = ref(listItems)
+const itemsAreLoading: Ref<boolean> = ref(false)
 
 // FUNCTIONS
-function onScrollBottom() {
+async function onScrollBottom() {
+  itemsAreLoading.value = true
+  await sleep(1000)
   dynamicListItems.value = [...dynamicListItems.value, ...listItems]
+  itemsAreLoading.value = false
 }
 </script>
 
 <template>
-  <div class="scroll-container">
-    <ListItem v-for="(item, index) in dynamicListItems"
-      :key="index">
-      <template #icon>
-        <component v-bind:is="item.icon"></component>
-      </template>
-      <template #heading>{{ item.heading }}</template>
-      {{ item.text }}
-    </ListItem>
+  <div class="wrapper">
+    <AppLoader v-if="itemsAreLoading" />
 
-    <ScrollBottom @reached-the-bottom="onScrollBottom" />
+    <div class="scroll-container">
+      <ListItem v-for="(item, index) in dynamicListItems"
+        :key="index">
+        <template #icon>
+          <component v-bind:is="item.icon"></component>
+        </template>
+        <template #heading>{{ item.heading }}</template>
+        {{ item.text }}
+      </ListItem>
+
+      <ScrollBottom @reached-the-bottom="onScrollBottom" />
+    </div>
   </div>
 </template>
 
 <style scoped>
+.wrapper {
+  min-width: 35rem;
+  min-height: 30rem;
+  position: relative;
+}
+
 .scroll-container {
   max-width: 35rem;
   max-height: 30rem;
   overflow-y: scroll;
-
 }
 </style>
