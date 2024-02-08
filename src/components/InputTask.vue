@@ -1,11 +1,11 @@
 
 <script setup lang='ts'>
 // IMPORTS
-import { useSaveDataStore } from "@/stores/saveData.store";
+import { useTasksStore } from "@/stores/tasks.store";
 import { storeToRefs } from "pinia";
 
 // STORES
-const { newTask, tasks } = storeToRefs(useSaveDataStore())
+const { newTask, tasks } = storeToRefs(useTasksStore())
 
 // FUNCTIONS
 function saveTask(priority: boolean) {

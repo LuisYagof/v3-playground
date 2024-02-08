@@ -1,11 +1,11 @@
 <script setup lang="ts">
 // IMPORTS
-import { useSaveDataStore } from "@/stores/saveData.store";
+import { useTasksStore } from "@/stores/tasks.store";
 import TaskCard from '@/components/TaskCard.vue'
 import InputTask from '@/components/InputTask.vue'
 
 // STORES
-const { tasks } = useSaveDataStore()
+const { tasks } = useTasksStore()
 
 // FUNCTIONS
 function removeTask(index: number) {
