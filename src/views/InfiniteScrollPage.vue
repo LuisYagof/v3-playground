@@ -9,7 +9,7 @@ import InfiniteScroll from '@/components/InfiniteScroll.vue'
   </main>
 </template>
 
-<style>
+<style scoped>
 main {
   display: flex;
   flex-direction: column;

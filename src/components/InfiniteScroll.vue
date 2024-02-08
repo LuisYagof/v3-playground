@@ -63,7 +63,7 @@ function onScrollBottom() {
   </div>
 </template>
 
-<style>
+<style scoped>
 .scroll-container {
   max-width: 35rem;
   max-height: 30rem;
