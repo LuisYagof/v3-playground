@@ -26,6 +26,11 @@ const router = createRouter({
       path: '/inactivity',
       name: 'inactivity',
       component: () => import('@/views/InactivityPage.vue')
+    },
+    {
+      path: '/save-data',
+      name: 'save-data',
+      component: () => import('@/views/SaveDataPage.vue')
     }
   ]
 })

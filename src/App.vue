@@ -20,6 +20,10 @@ const appRoutes = [
   {
     name: 'inactivity',
     text: 'Inactivity'
+  },
+  {
+    name: 'save-data',
+    text: 'Save Data'
   }
 ]
 </script>
