@@ -20,13 +20,13 @@ function decreaseSize() {
 <template>
     <main>
         <h1>Click Outside</h1>
-
-        <div @click="increaseSize"
-            v-click-outside="decreaseSize"
-            class="box">
-            <span>{{ boxText }}</span>
+        <div class="button-wrapper">
+            <button @click="increaseSize"
+                v-click-outside="decreaseSize"
+                class="button">
+                <span>{{ boxText }}</span>
+            </button>
         </div>
-
     </main>
 </template>
 
@@ -35,12 +35,21 @@ main {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 1rem;
 }
 
-.box {
+.button-wrapper {
+    width: 20rem;
+    height: 10rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.button {
     cursor: pointer;
     background-color: var(--vt-c-vue-green);
+    color: white;
+    font-family: 'Segoe UI';
     padding: v-bind(boxPadding);
     transition: padding 1s;
 }
