@@ -61,6 +61,16 @@
   font-weight: normal;
 }
 
+*::selection {
+  color: white;
+  background: var(--vt-c-vue-green);
+}
+
+*::-moz-selection {
+  color: white;
+  background: var(--vt-c-vue-green);
+}
+
 body {
   min-height: 100vh;
   color: var(--color-text);
