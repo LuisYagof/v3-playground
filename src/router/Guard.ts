@@ -1,19 +1,18 @@
+import { useRouter } from 'vue-router'
 import type { RouteLocationNormalized, Router, NavigationGuardNext } from 'vue-router'
 import { storeToRefs } from 'pinia'
-import { useTasksStore } from '@/stores/tasks.store'
 import { useUnsavedDataStore } from '@/stores/unsavedData.store'
 
 export function registerGuard(router: Router) {
   router.beforeEach(
     (to: RouteLocationNormalized, from: RouteLocationNormalized, next: NavigationGuardNext) => {
-      const { newTask } = storeToRefs(useTasksStore())
-      const { unsavedChanges } = storeToRefs(useUnsavedDataStore())
+      const { unsavedChanges, displaySaveDataModal } = storeToRefs(useUnsavedDataStore())
+      const { setAction } = useUnsavedDataStore()
 
       if (unsavedChanges.value) {
-        if (window.confirm('There are unsaved changes. Do you wish to continue anyways?')) {
-          newTask.value = ''
-          next()
-        } else next(false)
+        setAction(useRouter().push, [{ name: to.name }])
+        displaySaveDataModal.value = true
+        next(false)
       } else {
         next()
       }

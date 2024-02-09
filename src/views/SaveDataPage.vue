@@ -6,10 +6,11 @@ import { useTasksStore } from "@/stores/tasks.store";
 import { useUnsavedDataStore } from '@/stores/unsavedData.store';
 import TaskCard from '@/components/TaskCard.vue'
 import InputTask from '@/components/InputTask.vue'
+import SaveDataModal from '@/components/modals/SaveData.modal.vue'
 
 // STORES
 const { tasks } = useTasksStore()
-const { unsavedChanges } = storeToRefs(useUnsavedDataStore())
+const { unsavedChanges, displaySaveDataModal } = storeToRefs(useUnsavedDataStore())
 
 // LIFECYCLE
 onMounted(() => handleBrowserClose())
@@ -46,6 +47,8 @@ function checkUnsavedChanges(event: BeforeUnloadEvent) {
                 @remove-task="removeTask" />
         </div>
     </main>
+
+    <SaveDataModal v-if="displaySaveDataModal" />
 </template>
 
 <style scoped>
