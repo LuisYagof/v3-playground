@@ -7,7 +7,7 @@
     "dev": "vite",
     "build": "run-p type-check \"build-only {@}\" --",
     "preview": "vite preview",
-    "test:unit": "vitest",
+    "test:unit": "vitest --config ./config/vitest.config.ts",
     "test:e2e": "playwright test",
     "build-only": "vite build",
     "type-check": "vue-tsc --build --force",
@@ -39,5 +39,6 @@
     "vite": "^5.0.11",
     "vitest": "^1.2.2",
     "vue-tsc": "^1.8.27"
-  }
+  },
+  "prettier": "./config/prettier.json"
 }
