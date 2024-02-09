@@ -1,12 +1,18 @@
 <script setup lang="ts">
 // IMPORTS
-import { computed } from "vue";
+import { computed, onMounted } from 'vue';
+import { storeToRefs } from 'pinia';
 import { useTasksStore } from "@/stores/tasks.store";
+import { useUnsavedDataStore } from '@/stores/unsavedData.store';
 import TaskCard from '@/components/TaskCard.vue'
 import InputTask from '@/components/InputTask.vue'
 
 // STORES
 const { tasks } = useTasksStore()
+const { unsavedChanges } = storeToRefs(useUnsavedDataStore())
+
+// LIFECYCLE
+onMounted(() => handleBrowserClose())
 
 // COMPUTED
 const tasksSortedByNew = computed(() => [...tasks].reverse())
@@ -15,6 +21,17 @@ const tasksSortedByNew = computed(() => [...tasks].reverse())
 function removeTask(id: number) {
     const taskToDelete = tasks.findIndex(task => task.id === id)
     if (taskToDelete > (-1)) tasks.splice(taskToDelete, 1)
+}
+
+function handleBrowserClose() {
+    window.addEventListener('beforeunload', checkUnsavedChanges)
+}
+
+function checkUnsavedChanges(event: BeforeUnloadEvent) {
+    if (unsavedChanges.value) {
+        event.preventDefault()
+        event.returnValue = ''
+    }
 }
 </script>
 
