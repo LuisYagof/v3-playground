@@ -1,10 +1,14 @@
 <script setup lang='ts'>
 // IMPORTS
-import { onMounted, ref } from 'vue';
+import { onMounted, ref, onUnmounted } from 'vue';
 
 // LIFECYCLE
 onMounted(() => {
     beginListeningToScreenEvents()
+})
+
+onUnmounted(() => {
+    clearTimeout(inactivityTimeout)
 })
 
 // DATA
