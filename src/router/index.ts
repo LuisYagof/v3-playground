@@ -32,6 +32,11 @@ const router = createRouter({
       path: '/save-data',
       name: 'save-data',
       component: () => import('@/views/SaveDataPage.vue')
+    },
+    {
+      path: '/drag-and-drop',
+      name: 'drag-and-drop',
+      component: () => import('@/views/DragAndDropPage.vue')
     }
   ]
 })

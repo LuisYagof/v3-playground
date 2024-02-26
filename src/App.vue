@@ -24,6 +24,10 @@ const appRoutes = [
   {
     name: 'save-data',
     text: 'Save Data'
+  },
+  {
+    name: 'drag-and-drop',
+    text: 'Drag & Drop'
   }
 ]
 </script>
