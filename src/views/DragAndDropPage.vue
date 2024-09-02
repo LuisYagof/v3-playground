@@ -97,6 +97,7 @@ main {
         cursor: grab;
         background-color: var(--vt-c-vue-darkgreen);
         color: var(--color-text);
+        font-weight: 700;
 
         &.box-1 {
             left: 1rem;
